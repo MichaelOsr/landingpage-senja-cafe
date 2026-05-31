@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace with your real domain before launch.
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://senja-cafe.vercel.app/sitemap.xml

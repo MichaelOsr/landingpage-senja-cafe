@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" width="1000" height="1200" role="img">
+  <defs>
+    <linearGradient id="heroBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#caa07a" />
+      <stop offset="0.55" stop-color="#a9744f" />
+      <stop offset="1" stop-color="#6d4530" />
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="0.5" cy="0.32" r="0.6">
+      <stop offset="0" stop-color="#f6d9b8" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#f6d9b8" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4ece1" />
+      <stop offset="1" stop-color="#e3d3c0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="1200" fill="url(#heroBg)" />
+  <rect width="1000" height="1200" fill="url(#heroGlow)" />
+
+  <!-- Saucer -->
+  <ellipse cx="500" cy="900" rx="300" ry="58" fill="#3a2a20" opacity="0.28" />
+  <ellipse cx="500" cy="888" rx="280" ry="50" fill="url(#cup)" />
+
+  <!-- Cup body -->
+  <path d="M300 720 h400 v40 a200 200 0 0 1 -400 0 Z" fill="url(#cup)" />
+  <path d="M300 720 h400 v18 H300 Z" fill="#3a2a20" opacity="0.18" />
+  <ellipse cx="500" cy="720" rx="200" ry="40" fill="#6f4a32" />
+  <ellipse cx="500" cy="718" rx="176" ry="32" fill="#3f2a1c" />
+
+  <!-- Handle -->
+  <path d="M700 760 a86 86 0 0 1 0 150" fill="none" stroke="url(#cup)" stroke-width="34" stroke-linecap="round" />
+
+  <!-- Steam -->
+  <g fill="none" stroke="#f6e6d2" stroke-width="12" stroke-linecap="round" opacity="0.75">
+    <path d="M452 660 c-34 -44 26 -78 -8 -126 c-22 -32 18 -58 2 -96" />
+    <path d="M548 660 c34 -44 -26 -78 8 -126 c22 -32 -18 -58 -2 -96" />
+  </g>
+</svg>

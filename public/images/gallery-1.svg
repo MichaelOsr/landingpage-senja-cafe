@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a5036" />
+      <stop offset="1" stop-color="#3a2418" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g1)" />
+  <!-- portafilter -->
+  <rect x="300" y="430" width="200" height="40" rx="10" fill="#1f140d" />
+  <rect x="360" y="300" width="80" height="140" rx="14" fill="#d9b48f" />
+  <ellipse cx="400" cy="470" rx="120" ry="26" fill="#1f140d" opacity="0.6" />
+  <!-- streams -->
+  <g stroke="#c98a52" stroke-width="6" opacity="0.7">
+    <line x1="380" y1="470" x2="380" y2="640" />
+    <line x1="420" y1="470" x2="420" y2="640" />
+  </g>
+  <!-- cup -->
+  <path d="M320 640 h160 v20 a80 80 0 0 1 -160 0 Z" fill="#f4ece1" />
+  <ellipse cx="400" cy="640" rx="80" ry="18" fill="#e3d3c0" />
+</svg>

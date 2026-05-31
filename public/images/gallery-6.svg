@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img">
+  <defs>
+    <linearGradient id="g6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c98a52" />
+      <stop offset="1" stop-color="#6d4530" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g6)" />
+  <!-- dripper -->
+  <path d="M320 200 h160 l-46 130 h-68 Z" fill="#f1e7da" />
+  <ellipse cx="400" cy="200" rx="80" ry="20" fill="#e3d3c0" />
+  <!-- kettle spout stream -->
+  <path d="M250 170 q120 10 150 40" fill="none" stroke="#3a2418" stroke-width="10" stroke-linecap="round" opacity="0.6" />
+  <line x1="400" y1="330" x2="400" y2="420" stroke="#3a2418" stroke-width="6" opacity="0.7" />
+  <!-- carafe -->
+  <path d="M330 420 h140 v70 a70 70 0 0 1 -140 0 Z" fill="#f1e7da" opacity="0.95" />
+  <path d="M345 470 h110 v20 a55 55 0 0 1 -110 0 Z" fill="#5c3a26" />
+</svg>

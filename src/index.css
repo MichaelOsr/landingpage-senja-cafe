@@ -1,0 +1,187 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  PLAYFUL ARTISAN THEME — single cream theme (no dark mode).        │
+  │  Colors are oklch(lightness chroma hue). Cream canvas, eggplant    │
+  │  ink, terracotta-orange primary, bright-yellow + green accents.    │
+  │  Edit these tokens to re-theme the whole site.                     │
+  └──────────────────────────────────────────────────────────────────┘
+*/
+:root {
+  --radius: 1rem;
+
+  /* Cream canvas, deep eggplant-roast ink. */
+  --background: oklch(0.97 0.015 85);
+  --foreground: oklch(0.26 0.035 25);
+  --card: oklch(0.99 0.008 85);
+  --card-foreground: oklch(0.26 0.035 25);
+  --popover: oklch(0.99 0.008 85);
+  --popover-foreground: oklch(0.26 0.035 25);
+
+  /* Primary accent — warm terracotta-orange (CTA pills). */
+  --primary: oklch(0.64 0.17 42);
+  --primary-foreground: oklch(0.98 0.015 85);
+
+  --secondary: oklch(0.93 0.022 80);
+  --secondary-foreground: oklch(0.3 0.035 30);
+  --muted: oklch(0.94 0.018 82);
+  --muted-foreground: oklch(0.47 0.03 40);
+  --accent: oklch(0.9 0.05 75);
+  --accent-foreground: oklch(0.28 0.04 30);
+  --destructive: oklch(0.55 0.2 27);
+
+  /* Playful accents. */
+  --ink: oklch(0.26 0.035 25); /* dark eggplant — footer, banner, ink pill */
+  --ink-foreground: oklch(0.97 0.015 85);
+  --accent-yellow: oklch(0.88 0.15 92); /* bright statement banner */
+  --accent-yellow-foreground: oklch(0.26 0.035 25);
+  --eco: oklch(0.7 0.15 150); /* green eco badge */
+  --eco-foreground: oklch(0.99 0.01 150);
+
+  --border: oklch(0.86 0.025 72);
+  --input: oklch(0.86 0.025 72);
+  --ring: oklch(0.64 0.17 42);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* Hand-drawn marker display face for headings. */
+  --font-display: 'Shantell Sans', ui-rounded, 'Segoe UI', sans-serif;
+}
+
+/* Map the tokens above to Tailwind theme values (bg-background, font-display, ...). */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-yellow-foreground: var(--accent-yellow-foreground);
+  --color-eco: var(--eco);
+  --color-eco-foreground: var(--eco-foreground);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor scrolling so the sticky navbar doesn't cover headings. */
+    /* Navbar height is 4rem (h-16). Add 0.5rem breathing room. */
+    scroll-padding-top: 4.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Display headings use the marker face by default; opt out with `font-sans`. */
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  /* Respect users who prefer less motion (accessibility + Lighthouse). */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Subtle grain-free warm gradient used behind hero / section dividers. */
+  .bg-warm-radial {
+    background-image: radial-gradient(
+      ellipse at top,
+      color-mix(in oklch, var(--primary) 14%, transparent),
+      transparent 60%
+    );
+  }
+}
+
+/* ─── Senja sunrise logo animation ───────────────────────────────────────── */
+/*
+  Applied to the <circle> element inside SenjaLogo when animated={true}.
+  transform-box: fill-box makes translateY(50%) relative to the circle's own
+  bounding box (diameter = 2r = 52 SVG units), so 50% = 26 units = exactly
+  one radius — moving the center from cy=62 to cy=88, which puts the topmost
+  point of the circle right at the horizon clip boundary (y=62), hiding it.
+*/
+@keyframes senja-sun-rise {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.senja-sun-rise {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: senja-sun-rise 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+/* ─── Section scroll-reveal ───────────────────────────────────────────────── */
+/*
+  reveal-section: added by JS (Section.tsx) after mount — only for elements
+  that are NOT already in the viewport, preventing any above-fold flash.
+  visible: added by IntersectionObserver when the section scrolls into view.
+*/
+.reveal-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease-out,
+    transform 0.65s ease-out;
+}
+
+.reveal-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

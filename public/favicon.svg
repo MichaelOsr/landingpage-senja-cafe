@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#3a2a20" />
+  <defs>
+    <!-- Clips to the upper half so only the sun's top arc is visible. -->
+    <clipPath id="h">
+      <rect x="0" y="0" width="32" height="15" />
+    </clipPath>
+  </defs>
+  <!-- Sun — full circle, clipped to a semicircle above the horizon. -->
+  <g clip-path="url(#h)">
+    <circle cx="16" cy="15" r="9" fill="#d08048" />
+  </g>
+  <!-- Horizon line -->
+  <line x1="4"   y1="15" x2="28"   y2="15" stroke="#f0e4d0" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Ripple 1 -->
+  <line x1="7"   y1="20" x2="25"   y2="20" stroke="#b09268" stroke-width="2"   stroke-linecap="round" />
+  <!-- Ripple 2 -->
+  <line x1="10.5" y1="24" x2="21.5" y2="24" stroke="#b09268" stroke-width="2"   stroke-linecap="round" opacity="0.65" />
+</svg>

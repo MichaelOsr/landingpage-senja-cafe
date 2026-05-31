@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO meta tags. EDIT these in one place (also see src/data/cafe.ts). -->
+    <title>Senja Coffee House — Specialty Coffee, Roasted with Care</title>
+    <meta
+      name="description"
+      content="Senja Coffee House serves single-origin specialty coffee, roasted in-house and brewed with care. Cozy seats, warm light, and pastries baked fresh daily."
+    />
+    <meta name="author" content="Senja Coffee House" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://your-domain.com/" />
+    <meta name="theme-color" content="#F8F1E7" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Senja Coffee House — Specialty Coffee, Roasted with Care" />
+    <meta
+      property="og:description"
+      content="Single-origin specialty coffee, roasted in-house and brewed with care. Cozy seats, warm light, and pastries baked fresh daily."
+    />
+    <meta property="og:url" content="https://your-domain.com/" />
+    <meta property="og:image" content="https://your-domain.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts: preconnect + display=swap keeps text painting fast (no FOIT). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    />
+
+    <!--
+      Anti-FOUC: set the <html lang> before React renders so the page never
+      flashes the wrong language. Keep in sync with src/hooks/useLanguage.ts.
+    -->
+    <script>
+      ;(() => {
+        try {
+          const lang = localStorage.getItem('lang')
+          if (lang === 'en' || lang === 'id') {
+            document.documentElement.lang = lang
+          } else if (navigator.language && navigator.language.toLowerCase().startsWith('id')) {
+            document.documentElement.lang = 'id'
+          }
+        } catch {
+          /* ignore */
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
